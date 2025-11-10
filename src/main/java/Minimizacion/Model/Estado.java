@@ -5,24 +5,61 @@
 package Minimizacion.Model;
 
 import java.util.HashMap;
-
+import java.util.Map;
 
 /**
  *
  * @author PC
  */
 public class Estado {
-    private boolean terminal;
-    private HashMap <String,Estado> transiciones;
 
-    public Estado (boolean terminal){
-        this.terminal=terminal;
-        this.transiciones=new HashMap<>();
+    private int id;
+    private boolean terminal;
+    private HashMap<Character, Estado> transiciones;
+
+    public Estado(int id, boolean terminal) {
+        this.id = id;
+        this.terminal = terminal;
+        this.transiciones = new HashMap<>();
     }
-    void agregarTransicion(String simbolo, Estado destino){
-        transiciones.put(simbolo,destino);
+
+    void agregarTransicion(Character simbolo, Estado destino) {
+        transiciones.put(simbolo, destino);
     }
-    
+
+    public void printTransiciones() {
+        System.out.println("Transiciones del estado " + id + ":");
+
+        if (transiciones.isEmpty()) {
+            System.out.println("  (sin transiciones)");
+            return;
+        }
+
+        for (Map.Entry<Character, Estado> entry : transiciones.entrySet()) {
+            char simbolo = entry.getKey();
+            Estado destino = entry.getValue();
+            System.out.println("  con simbolo " + simbolo + " va a el estado " + destino.getId());
+        }
+    }
+
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Estado e = (Estado) obj;
+        return this.id == e.id;
+    }
+
+    public int hashCode() {
+        return Integer.hashCode(id);
+    }
+
+    public int getId() {
+        return id;
+    }
 
     /**
      * @return the terminal
@@ -41,13 +78,11 @@ public class Estado {
     /**
      * @return the transiciones
      */
-    public HashMap <String,Estado> getTransiciones() {
+    public HashMap<Character, Estado> getTransiciones() {
         return transiciones;
     }
 
     /**
      * @param transiciones the transiciones to set
      */
-    
-    
 }
