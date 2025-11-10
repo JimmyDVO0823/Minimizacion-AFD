@@ -4,6 +4,7 @@
  */
 package Minimizacion;
 
+import java.util.HashMap;
 import java.util.Set;
 
 /**
@@ -12,5 +13,6 @@ import java.util.Set;
  */
 public class AFD {
     Set<Character> alfabeto;
+    HashMap<String, Estado> tabla;
     
 }
