@@ -28,6 +28,19 @@ public class AFD {
     }
     
     /**
+     * Metodo para eliminar inalcanzables
+     */
+    public void eliminarInalcanzables(){
+        //Crea el arbol de alcanzables
+        Set<Estado> alcanzables = alcanzables();
+        //Itera en el arreglo
+        for (Estado actual : tabla) {
+            if(!alcanzables.contains(actual))
+                tabla.remove(actual);//Elimina inalcanzables
+        }
+    }
+    
+    /**
      * Metodo para recorrer las posibles transiciones y ver los estados alcanzables
      * @return alcanzables: estados alcanzables
      * 
