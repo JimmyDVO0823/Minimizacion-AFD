@@ -12,7 +12,7 @@ import java.util.Map;
  * @author PC
  */
 public class Estado {
-
+    
     private int id;
     private boolean terminal;
     private HashMap<Character, Estado> transiciones;

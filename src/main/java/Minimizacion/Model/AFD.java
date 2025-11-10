@@ -20,15 +20,15 @@ public class AFD {
     int numEstados;
 
     public AFD() {
-        tabla = new ArrayList<Estado>();
-        alfabeto = new HashSet<Character>();
+        tabla = new ArrayList<>();
+        alfabeto = new HashSet<>();
     }
 
     public AFD(Estado inicial) {
         numEstados = 1;
         this.inicial = inicial;
-        tabla = new ArrayList<Estado>();
-        alfabeto = new HashSet<Character>();
+        tabla = new ArrayList<>();
+        alfabeto = new HashSet<>();
     }
 
     public boolean addEstado(int id, boolean terminal) {
@@ -37,7 +37,11 @@ public class AFD {
             System.out.println("El estado " + id + " ya existe");
             return false;
         }
+        if(inicial==null){
+            inicial=nuevo;
+        }
         tabla.add(nuevo);
+        numEstados++;
         return true;
     }
 
