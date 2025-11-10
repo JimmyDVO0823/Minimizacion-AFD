@@ -14,6 +14,7 @@ import java.util.HashMap;
 public class Estado {
     private boolean terminal;
     private HashMap <String,Estado> transiciones;
+    private int id;
 
     public Estado (boolean terminal){
         this.terminal=terminal;
@@ -45,9 +46,14 @@ public class Estado {
         return transiciones;
     }
 
-    /**
-     * @param transiciones the transiciones to set
-     */
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     
     
 }
