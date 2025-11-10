@@ -14,5 +14,17 @@ import java.util.Set;
 public class AFD {
     Set<Character> alfabeto;
     HashMap<String, Estado> tabla;
+    Estado inicial;
+    int numEstados;
+
+    public AFD(Estado inicial) {
+        numEstados = 1;
+        this.inicial = inicial;
+        tabla = new HashMap<>();
+        tabla.put("q1", inicial);
+    }
     
+    public void print(){
+        
+    }
 }
