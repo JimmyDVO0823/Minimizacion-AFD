@@ -4,7 +4,9 @@
  */
 package Minimizacion;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -13,15 +15,15 @@ import java.util.Set;
  */
 public class AFD {
     Set<Character> alfabeto;
-    HashMap<String, Estado> tabla;
+    ArrayList<Estado> tabla;
     Estado inicial;
     int numEstados;
 
     public AFD(Estado inicial) {
         numEstados = 1;
         this.inicial = inicial;
-        tabla = new HashMap<>();
-        tabla.put("q1", inicial);
+        tabla = new ArrayList<Estado>();
+        
     }
     
     public void print(){
